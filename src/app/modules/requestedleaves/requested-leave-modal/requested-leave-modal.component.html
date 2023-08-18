@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Requested Leave</h2>
+<mat-dialog-content>
+    <h4>{{ data.eventTitle }}</h4>
+    <p>{{ data.eventDescription }}</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close class="dgr-btn btn">Reject</button>
+    <button mat-button [mat-dialog-close]="true" class="apr-btn btn">Approve</button>
+</mat-dialog-actions>

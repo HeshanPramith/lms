@@ -8,6 +8,13 @@ body
 
     h1, h2, h3, h4, h5, h6, p
         margin: 0
+        font-family: 'Roboto', sans-serif
+        letter-spacing: normal !important
+
+    button, a
+        transition: all .4s
+        box-shadow: none !important
+        font-family: 'Roboto', sans-serif
 
 #wrapper
     float: left
@@ -80,3 +87,175 @@ footer
     margin: 15px
     height: calc(100vh - 109px)
     overflow: auto
+
+.fc-button-primary
+    text-transform: capitalize !important
+    font-size: 12px !important
+    background: $base-color !important
+    border: none !important
+
+    &:disabled
+        cursor: not-allowed
+
+    &:hover
+        background: $third-base !important
+
+    &.fc-button-active
+        background: $third-base !important
+
+.fc
+    a
+        text-decoration: none !important
+
+    th
+
+        th
+            padding: 8px 0 !important
+            background: $secondry-color
+
+            &:first-child
+                border-radius: 5px 0 0 0 !important
+
+            &:last-child
+                border-radius: 0 5px 0 0 !important
+
+            a
+                color: #FFFFFF
+
+    td
+        a
+            color: $base-color
+
+    .fc-day-sun, .fc-day-sat
+        
+        a
+            color: #FFFFFF !important
+
+    .fc-button
+
+        .fc-icon
+            font-size: 1.2em !important
+
+    .fc-highlight
+        background: #109b2eb2
+
+.fc-dayGridMonth-view 
+
+    a
+        text-decoration: none !important
+
+    th
+
+        th
+            padding: 8px 0 !important
+            background: $secondry-color
+
+            &:first-child
+                border-radius: 5px 0 0 0 !important
+
+            &:last-child
+                border-radius: 0 5px 0 0 !important
+            
+            a
+                color: #FFFFFF !important
+
+    td
+        a
+            color: $base-color
+
+    .fc-day-sun, .fc-day-sat
+        background: #DDDDDD !important
+        border-color: #ebebeb !important
+        pointer-events: none
+        
+        a
+            color: $base-color !important
+
+    .fc-button
+
+        .fc-icon
+            font-size: 1.2em !important
+
+
+.fc-toolbar-title
+    font-size: 16px !important
+
+.fc-theme-standard
+
+    .fc-scrollgrid
+        border-radius: 5px !important
+
+.fc-event-title
+    font-size: 12px !important
+
+.fc-event-title-container
+    padding-left: 5px !important
+    padding-right: 5px !important
+
+.weekend-event
+    background-color: #f0f0f0 !important
+
+.multi-day-event
+    
+    .fc-scrollgrid-sync-table, .fc-daygrid-body
+    width: $f-width !important
+
+.fc-daygrid-day
+    cursor: pointer
+
+.mat-mdc-dialog-title
+    padding: 10px !important
+    line-height: normal !important
+    font-size: 14px !important
+    font-weight: 400 !important
+    background: $base-color
+    color: #FFFFFF !important
+
+    &::before
+        display: none !important
+
+.mat-mdc-dialog-content
+    padding: 10px !important
+
+    h4
+        font-size: 14px
+        color: $base-color
+
+    p
+        font-size: 12px
+        color: $base-color
+
+.mat-mdc-dialog-actions
+    padding: 10px !important
+    justify-content: flex-end !important
+
+    button
+        margin: 0 0 0 10px
+
+.btn
+    border: none !important
+    font-size: 12px
+    font-weight: 500
+    border-radius: 5px
+
+    i
+        margin: 0 3px 0 0
+
+.dgr-btn
+    background: $third-base !important
+    color: #FFFFFF !important
+
+    &:hover
+        box-shadow: 0px 0px 4px 1px $third-base !important
+
+.apr-btn
+    background: $success !important
+    color: #FFFFFF !important
+
+    &:hover
+        box-shadow: 0px 0px 4px 1px $success !important
+        transition: all .3s
+
+.cdk-overlay-dark-backdrop
+    background: rgb(0,0,0) !important
+    background: radial-gradient(circle, rgba(0,0,0,0.6755077030812324) 0%, #000000 100%) !important
