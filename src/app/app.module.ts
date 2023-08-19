@@ -9,12 +9,28 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { AppRoutingModule } from './router/app-routing.module';
 import { ApplyleaveComponent } from './modules/applyleave/applyleave.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ApplyLeaveModalComponent } from './modules/applyleave/apply-leave-modal/apply-leave-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { RequestedleavesComponent } from './modules/requestedleaves/requestedleaves.component';
 import { RequestedLeaveModalComponent } from './modules/requestedleaves/requested-leave-modal/requested-leave-modal.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { DepartmentComponent } from './modules/department/department.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { EmployeeComponent } from './modules/employee/employee.component';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +44,8 @@ import { RequestedLeaveModalComponent } from './modules/requestedleaves/requeste
     ApplyLeaveModalComponent,
     RequestedleavesComponent,
     RequestedLeaveModalComponent,
+    DepartmentComponent,
+    EmployeeComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +53,21 @@ import { RequestedLeaveModalComponent } from './modules/requestedleaves/requeste
     FullCalendarModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    FormsModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
+    MatIconModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [MainComponent]

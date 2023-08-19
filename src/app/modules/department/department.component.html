@@ -1,0 +1,78 @@
+<div class="pager-wrap-sec">
+    <div class="row">
+        <div class="col-xs-12 mb-3 d-flex justify-content-between">
+            <h3 class="page-title">Department</h3>
+            <button class="apr-btn btn" mat-button color="primary" (click)="addNewRow()"><i
+                    class="fa-solid fa-circle-plus"></i> Add New Department</button>
+        </div>
+        <div class="col-xs-12">
+            <table class="inner-tbl" mat-table [dataSource]="dataSource" matSort>
+
+                <ng-container matColumnDef="department">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header width="100px"> Department </th>
+                    <td mat-cell *matCellDef="let row" width="150px">
+                        <ng-container *ngIf="!row.editing; else editMode">
+                            {{ row.department }}
+                        </ng-container>
+                        <ng-template #editMode>
+                            <mat-form-field>
+                                <input [(ngModel)]="row.department" matInput>
+                            </mat-form-field>
+                        </ng-template>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header width="400px"> Description </th>
+                    <td mat-cell *matCellDef="let row">
+                        <ng-container *ngIf="!row.editing; else editMode">
+                            {{ row.description }}
+                        </ng-container>
+                        <ng-template #editMode>
+                            <mat-form-field>
+                                <input [(ngModel)]="row.description" matInput rows="5">
+                            </mat-form-field>
+                        </ng-template>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header width="80px"> Status </th>
+                    <td mat-cell *matCellDef="let row">
+                        <ng-container *ngIf="!row.editing; else editMode">
+                            <mat-slide-toggle [(ngModel)]="row.statusBoolean" color="primary"></mat-slide-toggle>
+                        </ng-container>
+                        <ng-template #editMode>
+                            <mat-slide-toggle [(ngModel)]="row.statusBoolean" color="primary"></mat-slide-toggle>
+                        </ng-template>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef width="100px"></th>
+                    <td mat-cell *matCellDef="let row">
+                        <ng-container *ngIf="!row.editing; else editMode">
+                            <button class="btn ed td-btn" mat-icon-button color="primary" (click)="startEditing(row)"><i
+                                    class="fa-regular fa-pen-to-square"></i></button>
+                        </ng-container>
+                        <ng-template #editMode>
+                            <button class="btn sv td-btn" mat-icon-button color="primary" (click)="saveEditing(row)"><i
+                                    class="fa-regular fa-floppy-disk"></i></button>
+                            <button *ngIf="!row.isNew" class="btn cn nv td-btn" mat-icon-button color="warn"
+                                (click)="cancelEditing(row)"><i class="fa-regular fa-circle-xmark"></i></button>
+                            <button *ngIf="row.isNew" class="btn cn td-btn" mat-icon-button color="warn"
+                                (click)="removeNewRow(row)"><i class="fa-solid fa-trash-can"></i></button>
+                        </ng-template>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'editable-row': row.editing}">
+                </tr>
+
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5"></mat-paginator>
+        </div>
+    </div>
+</div>

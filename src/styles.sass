@@ -15,6 +15,7 @@ body
         transition: all .4s
         box-shadow: none !important
         font-family: 'Roboto', sans-serif
+        border: none !important
 
 #wrapper
     float: left
@@ -104,6 +105,17 @@ footer
         background: $third-base !important
 
 .fc
+
+    .fc-list-event-dot
+        position: relative
+        top: 4px
+
+    .fc-bg-event
+        opacity: 1 !important
+
+    .fc-event-title
+        color: #FFFFFF !important
+
     a
         text-decoration: none !important
 
@@ -167,6 +179,9 @@ footer
         background: #DDDDDD !important
         border-color: #ebebeb !important
         pointer-events: none
+
+        &.fc-day-today
+            background: #5469e2 !important
         
         a
             color: $base-color !important
@@ -198,13 +213,70 @@ footer
 .multi-day-event
     
     .fc-scrollgrid-sync-table, .fc-daygrid-body
-    width: $f-width !important
+        width: $f-width !important
 
 .fc-daygrid-day
     cursor: pointer
 
+.freqcal
+    
+    .fc-event
+        border: none !important
+        box-shadow: none !important
+        margin-bottom: 5px
+        padding: 6px
+        
+        &.fc-h-event
+            border-radius: 50px
+            background: rgb(7,163,20)
+            background: linear-gradient(90deg, #003858 0%, #0683bd 70%)
+
+            .event-title
+                font-size: 12px
+                position: relative
+                padding: 3px 0 0 8px
+                color: #FFFFFF
+
+            .event-image
+                width: 25px
+                border-radius: 100%
+                border: solid 2px #FFFFFF
+
+        &.fc-event-future
+            border-radius: 50px
+            background: rgb(7,163,20)
+            background: linear-gradient(90deg, #003858 0%, #0683bd 70%)
+
+            .event-title
+                font-size: 12px
+                position: relative
+                padding: 3px 0 0 8px
+                color: #FFFFFF
+
+            .event-image
+                width: 25px
+                border-radius: 100%
+                border: solid 2px #FFFFFF
+
+        &:hover
+            background: $success
+
+    .extended-cal
+        display: flex
+
+        .event-title
+            font-size: 12px
+            position: relative
+            padding: 3px 0 0 8px
+
+        .event-image
+            width: 25px
+            border-radius: 100%
+            border: solid 2px #FFFFFF
+
+
 .mat-mdc-dialog-title
-    padding: 10px !important
+    padding: 10px 15px !important
     line-height: normal !important
     font-size: 14px !important
     font-weight: 400 !important
@@ -215,7 +287,7 @@ footer
         display: none !important
 
 .mat-mdc-dialog-content
-    padding: 10px !important
+    padding: 10px 15px !important
 
     h4
         font-size: 14px
@@ -226,7 +298,7 @@ footer
         color: $base-color
 
 .mat-mdc-dialog-actions
-    padding: 10px !important
+    padding: 0 15px 10px 15px !important
     justify-content: flex-end !important
 
     button
@@ -259,3 +331,199 @@ footer
 .cdk-overlay-dark-backdrop
     background: rgb(0,0,0) !important
     background: radial-gradient(circle, rgba(0,0,0,0.6755077030812324) 0%, #000000 100%) !important
+
+.card-body
+    padding: 10px
+
+.mat-mdc-form-field-error-wrapper
+    padding: 0 !important
+
+    .mat-mdc-form-field-error
+        font-size: 12px
+
+.mat-mdc-select-min-line
+    font-size: 12px
+
+.mat-mdc-select-placeholder
+    font-size: 12px !important
+
+label
+    font-size: 12px !important
+    font-weight: 500
+    line-height: normal !important
+    float: left
+    color: $base-color
+    width: $f-width
+
+    i
+        color: $third-base
+
+input, textarea
+    font-size: 12px !important
+    line-height: normal !important
+
+.mat-mdc-text-field-wrapper
+    padding: 0 0 3px 0 !important
+    background: none !important
+
+.mat-mdc-form-field
+    width: $f-width
+
+.mat-mdc-form-field-infix
+    padding: 0 !important
+    min-height: auto !important
+
+.mat-mdc-form-field-focus-overlay
+    background: none !important
+
+.mdc-icon-button
+    padding: 0 !important
+
+.mat-datepicker-toggle
+
+    button
+        background: none !important
+        height: 26px !important
+        width: 26px !important
+
+        .mat-mdc-button-persistent-ripple
+
+            &::before
+                background: none !important
+
+        .mat-mdc-button-touch-target
+            height: 26px !important
+            width: 26px !important
+
+        &:active
+            background: none !important
+            
+.lv-app
+    
+    .mat-mdc-checkbox-checked
+
+        .mdc-checkbox__background
+            background: $base-color !important
+            border-color: $base-color !important
+
+        .mdc-checkbox__ripple
+            background: none !important
+
+    .mat-mdc-radio-button
+        background: none !important
+
+    .mat-mdc-radio-checked
+
+        .mdc-radio__background
+
+            .mdc-radio__outer-circle
+                border-color: $base-color !important
+
+            .mdc-radio__inner-circle
+                border-color: $base-color !important    
+
+            &::before
+                background: none !important
+
+        .mat-radio-ripple
+            background: none !important
+
+.noofdays
+    background: #ededed
+    text-align: center
+    color: #1a1a1a
+    font-size: 14px
+    border-radius: 5px
+    display: inline-block
+    width: 100%
+    padding: 8px 10px
+    font-weight: bold
+
+.mat-mdc-form-field-bottom-align
+    min-height: 0
+
+.page-title
+    float: left
+    width: auto
+    font-size: 16px
+    margin: 5px 0
+
+.pager-wrap
+    padding: 15px 5px
+
+.pager-wrap-sec
+    max-height: calc(100vh - 110px)
+    overflow-y: auto
+    overflow-x: hidden
+    padding: 0 !important
+
+.comm-wrap-bx
+    float: left
+    width: $f-width
+    border-radius: 5px
+    padding: 10px
+    background: #FFFFFF
+    margin-bottom: 10px
+
+.inner-tbl
+    
+    td
+        font-size: $base-font
+        padding: 5px 15px !important
+        color: #6c6c6c
+
+        .mat-mdc-form-field-subscript-wrapper
+            display: none
+
+.editable-row 
+
+    td
+        background-color: #e6fce7
+
+.td-btn
+    color: #FFFFFF !important
+    margin-right: 10px
+    transition: all .3s
+    text-align: center
+
+    i
+        margin: 0
+        font-size: 18px
+
+    &.ed
+
+        i
+            color: #333333 !important
+
+    &.sv
+        
+        i
+            color: $success !important
+
+    &.cn
+        
+        i
+            color: $third-base !important
+
+.mdc-text-field--outlined
+    padding-left: 10px !important
+    padding-right: 10px !important
+    padding-top: 4px !important
+
+
+.mdc-switch:enabled
+
+    .mdc-switch__track
+
+        &::after
+            background: #0fb43391 !important
+
+.mdc-switch.mdc-switch--selected:enabled
+
+    .mdc-switch__handle
+
+        &::after
+            background: $success !important
+
+
+

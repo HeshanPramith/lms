@@ -1,9 +1,22 @@
 <h2 mat-dialog-title>Requested Leave</h2>
 <mat-dialog-content>
-    <h4>{{ data.eventTitle }}</h4>
-    <p>{{ data.eventDescription }}</p>
+    <h4>{{ data.eventEmp }} - <i>{{ data.eventDateRange }}</i></h4>
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0 d-flex align-items-center">
+            <div class="col-md-3">
+                <img *ngIf="data.eventImage" [src]="data.eventImage" class="img-fluid" alt="Emp Image">
+            </div>
+            <div class="col-md-9">
+                <div class="card-body">
+                    <h5 class="card-title">{{ data.eventTitle }}</h5>
+                    <p class="card-text">{{ data.eventDescription }}</p>
+                    <p class="card-text"><small class="text-body-secondary">Requested 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </mat-dialog-content>
 <mat-dialog-actions>
-    <button mat-button mat-dialog-close class="dgr-btn btn">Reject</button>
-    <button mat-button [mat-dialog-close]="true" class="apr-btn btn">Approve</button>
+    <button mat-button mat-dialog-close class="dgr-btn btn"><i class="fa-regular fa-circle-xmark"></i> Reject</button>
+    <button mat-button [mat-dialog-close]="true" class="apr-btn btn"><i class="fa-regular fa-circle-check"></i> Approve</button>
 </mat-dialog-actions>

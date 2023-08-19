@@ -1,6 +1,97 @@
 <h2 mat-dialog-title>Apply Leave</h2>
-<mat-dialog-content>
-    
+<mat-dialog-content class="lv-app">
+    <!-- <form class="example-form"> -->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <mat-form-field>
+                    <label>Leave Type <i>*</i></label>
+                    <mat-select [formControl]="leaveControl" placeholder="Select Leave Type">
+                        <mat-option *ngFor="let leave of leaves" [value]="leave">{{ leave.name }} ({{ leave.balance
+                            }})</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="leaveControl.hasError('required')">Leave type is required</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div [class]="leaveControl.value && (leaveControl.value.name === 'Short Leave') ? 'col-xs-12 col-sm-5' : 'col-xs-12 col-sm-7'" *ngIf="leaveControl.value && (leaveControl.value.name === 'Annual Leave' || leaveControl.value.name === 'Casual Leave' || leaveControl.value.name === 'Short Leave')">
+                <mat-form-field>
+                    <label>From Date <i>*</i></label>
+                    <input matInput [matDatepicker]="fromdate" required [value]="selectedDate" (dateChange)="fromDateChanged($event)">
+                    <mat-datepicker-toggle matIconSuffix [for]="fromdate"></mat-datepicker-toggle>
+                    <mat-datepicker #fromdate></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="col-xs-12 col-sm-5" *ngIf="leaveControl.value && (leaveControl.value.name === 'Annual Leave' || leaveControl.value.name === 'Casual Leave')">
+                <mat-checkbox class="example-margin" [(ngModel)]="isHalfDayFrom">Half Day</mat-checkbox>
+            </div>
+            <div class="col-xs-12 col-sm-7" *ngIf="leaveControl.value && (leaveControl.value.name === 'Short Leave')">
+                <mat-radio-group aria-label="Select an option" class="row">
+                    <mat-radio-button value="1" class="col-xs-12 col-sm-6">Morning</mat-radio-button>
+                    <mat-radio-button value="2" class="col-xs-12 col-sm-6">Evening</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+        <div class="row" *ngIf="leaveControl.value && (leaveControl.value.name === 'Annual Leave' || leaveControl.value.name === 'Casual Leave')">
+            <div class="col-xs-12 col-sm-7">
+                <mat-form-field>
+                    <label>To Date <i>*</i></label>
+                    <input matInput [matDatepicker]="todate" required [min]="selectedFromDate" [value]="selectedToDate" (dateChange)="toDateChanged($event)">
+                    <mat-datepicker-toggle matIconSuffix [for]="todate"></mat-datepicker-toggle>
+                    <mat-datepicker #todate></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="col-xs-12 col-sm-5">
+                <mat-checkbox class="example-margin" [(ngModel)]="isHalfDayTo">Half Day</mat-checkbox>
+            </div>
+        </div>
+        <div class="row mb-3" *ngIf="leaveControl.value && (leaveControl.value.name === 'Annual Leave' || leaveControl.value.name === 'Casual Leave')">
+            <div class="col-xs-12 text-center">
+                <div class="noofdays">No. Of Days: {{ numberOfDays }}</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-7">
+                <mat-form-field>
+                    <label>Contact Number while on Leave <i>*</i></label>
+                    <input type="tel" matInput placeholder="Ex: 0711234567">
+                </mat-form-field>
+            </div>
+            <div class="col-xs-12 col-sm-5">
+                <mat-checkbox class="example-margin">Notify others</mat-checkbox>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+                <mat-form-field>
+                    <label class="pb-1">Reason <i>*</i></label>
+                    <textarea matInput placeholder="Ex. It makes me feel..." rows="5"></textarea>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <mat-form-field>
+                    <label>Approving person</label>
+                    <mat-select>
+                        <mat-option *ngFor="let notifyperson of notifypersons" [value]="notifyperson.person">
+                          {{notifyperson.person}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <mat-form-field>
+                    <label>Acting Person</label>
+                    <mat-select multiple>
+                        <mat-option *ngFor="let actingperson of actingpersons" [value]="actingperson.person">
+                          {{actingperson.person}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    <!-- </form> -->
 </mat-dialog-content>
 <mat-dialog-actions>
     <button mat-button mat-dialog-close class="dgr-btn btn"><i class="fa-regular fa-circle-xmark"></i> Close</button>
