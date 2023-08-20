@@ -59,6 +59,7 @@ export class DepartmentComponent implements AfterViewInit {
     row.editing = false;
     delete row.departmentBackup;
     delete row.statusBackup;
+    row.status = row.statusBoolean ? 'Active' : 'Inactive';
   }
 
   cancelEditing(row: Department): void {

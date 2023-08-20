@@ -236,6 +236,11 @@ footer
                 position: relative
                 padding: 3px 0 0 8px
                 color: #FFFFFF
+                width: calc(100% + -30px)
+                float: left
+                white-space: nowrap
+                overflow: hidden
+                text-overflow: ellipsis
 
             .event-image
                 width: 25px
@@ -466,10 +471,13 @@ input, textarea
     margin-bottom: 10px
 
 .inner-tbl
+
+    th
+        color: #FFFFFF !important
     
     td
         font-size: $base-font
-        padding: 5px 15px !important
+        padding: 0px 15px !important
         color: #6c6c6c
 
         .mat-mdc-form-field-subscript-wrapper
@@ -521,9 +529,45 @@ input, textarea
 .mdc-switch.mdc-switch--selected:enabled
 
     .mdc-switch__handle
+        
+        &::after
+            background: $success !important
+
+.mdc-switch:disabled
+    cursor: not-allowed !important
+
+    .mdc-switch__track
+        opacity: 1 !important
+
+        &::after
+            background: #0fb43391 !important
+
+.mdc-switch.mdc-switch--selected:disabled
+
+    .mdc-switch__icons
+        opacity: 1 !important
+
+    .mdc-switch__handle
 
         &::after
             background: $success !important
+            opacity: 1 !important
+
+.mat-mdc-header-row
+
+    th
+        background-color: #3c3c3c !important
+
+        div 
+            color: #FFFFFF !important
+
+
+.inactive
+    
+    td
+        background-color: #ffcccc50 !important
+        color: #b2b2b2 !important
+
 
 
 

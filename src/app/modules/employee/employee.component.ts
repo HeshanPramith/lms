@@ -62,4 +62,18 @@ export class EmployeeComponent {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
+
+  updateRowClass(employee: Employee, isChecked: boolean) {
+    const rowElement = document.getElementById(`employee-row-${employee.epfNumber}`);
+    
+    if (rowElement) {
+      if (isChecked) {
+        rowElement.classList.remove('inactive');
+        rowElement.classList.add('active');
+      } else {
+        rowElement.classList.remove('active');
+        rowElement.classList.add('inactive');
+      }
+    }
+  }
 }
