@@ -1,0 +1,221 @@
+<h2 mat-dialog-title>{{ mode ? 'Edit Employee' : 'Add Employee' }} <span *ngIf="mode">- {{ newEmployeeData.firstName }} {{ newEmployeeData.lastName }}</span></h2>
+<mat-dialog-content class="lv-app">
+    <form #employeeForm="ngForm">
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h5>Personal Info <i class="fa-solid fa-arrow-turn-down"></i></h5>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <mat-form-field>
+                    <label>EPF <i>*</i></label>
+                    <input matInput placeholder="" [(ngModel)]="newEmployeeData.epfNumber" name="epfNumber" disabled>
+                </mat-form-field>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <mat-form-field>
+                    <label>Salutation <i>*</i></label>
+                    <mat-select placeholder="" [(ngModel)]="newEmployeeData.salutation"
+                        name="salutation" required>
+                        <mat-option *ngFor="let salutation of salutations" [value]="salutation">{{ salutation }}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="selectFormControl.hasError('required')">Salutation is required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <mat-form-field>
+                    <label>Gender <i>*</i></label>
+                    <mat-select placeholder="" [(ngModel)]="newEmployeeData.gender"
+                        name="gender" required>
+                        <mat-option *ngFor="let gender of genders" [value]="gender">{{ gender }}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="selectFormControl.hasError('required')">Gender is required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-3 overflow-hidden">
+                <img *ngIf="mode" [src]="newEmployeeData.empimage" alt="Employee Photo"> <b *ngIf="mode" class="epname">{{ newEmployeeData.firstName }}</b>
+                <label *ngIf="!mode">Photo</label>
+                <input *ngIf="!mode" type="file" ng-model="newEmployeeData.empimageFile" accept="image/*">
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <mat-form-field>
+                    <label>First Name <i>*</i></label>
+                    <input matInput placeholder="" [(ngModel)]="newEmployeeData.firstName" name="firstName"
+                        required>
+                    <mat-error *ngIf="leaveControl.hasError('required')">First Name is required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <mat-form-field>
+                    <label>Middle Name <i>*</i></label>
+                    <input matInput placeholder="" [(ngModel)]="newEmployeeData.middleName" name="middleName" required>
+                    <mat-error *ngIf="leaveControl.hasError('required')">Last Name is required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <mat-form-field>
+                    <label>Last Name <i>*</i></label>
+                    <input matInput placeholder="" [(ngModel)]="newEmployeeData.lastName" name="lastName" required>
+                    <mat-error *ngIf="leaveControl.hasError('required')">Last Name is required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-3" *ngIf="!mode">
+                <label class="mb-1">Status</label>
+                <mat-slide-toggle color="primary" [checked]="newEmployeeData.status === 'Active'" (change)="updateRowClass(newEmployeeData, $event.checked)"></mat-slide-toggle>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h5>Designation/Other Info <i class="fa-solid fa-arrow-turn-down"></i></h5>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <mat-form-field>
+                    <label>Department <i>*</i></label>
+                    <mat-select placeholder="" [(ngModel)]="newEmployeeData.department"
+                        name="department" required>
+                        <mat-option *ngFor="let department of departments" [value]="department">{{ department }}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="selectFormControl.hasError('required')">Department is required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <mat-form-field>
+                    <label>Designation <i>*</i></label>
+                    <input matInput placeholder="" [(ngModel)]="newEmployeeData.designation" name="designation"
+                        required>
+                    <mat-error *ngIf="leaveControl.hasError('required')">Designation is required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <mat-form-field>
+                    <label>Employee Category <i>*</i></label>
+                    <mat-select placeholder="" [(ngModel)]="newEmployeeData.employeeCategory"
+                        name="employeeCategory" required>
+                        <mat-option *ngFor="let empcatrgorie of empcatrgories" [value]="empcatrgorie">{{ empcatrgorie }}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="selectFormControl.hasError('required')">Employee category is required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <mat-form-field>
+                    <label>Email <i>*</i></label>
+                    <input matInput placeholder="" type="email" [formControl]="emailFormControl" [errorStateMatcher]="matcher" [(ngModel)]="newEmployeeData.email" name="email" required>
+                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                        Enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                        Email is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <mat-form-field>
+                    <label>Reporting Officer <i>*</i></label>
+                    <mat-select placeholder="" [(ngModel)]="newEmployeeData.reportingOfficer"
+                        name="reportingOfficer" required>
+                        <mat-option *ngFor="let officer of reportingOfficers" [value]="officer">{{ officer }}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="selectFormControl.hasError('required')">Reporting is required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <mat-form-field>
+                    <label>Joined Date <i>*</i></label>
+                    <input matInput [matDatepicker]="picker" [(ngModel)]="newEmployeeData.joinedDate" name="joinedDate">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker matDatepickerParse="DD/MM/YYYY"></mat-datepicker>
+                    <mat-error *ngIf="leaveControl.hasError('required')">Joined date is required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <mat-form-field>
+                    <label>Contract End Date</label>
+                    <input matInput [matDatepicker]="picker2" [(ngModel)]="newEmployeeData.contractEndDate" name="contractEndDate">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2 matDatepickerParse="DD/MM/YYYY"></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <mat-checkbox>HOD</mat-checkbox>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h5>Contact/Leave Info <i class="fa-solid fa-arrow-turn-down"></i></h5>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <mat-form-field>
+                    <label>NIC <i>*</i></label>
+                    <input matInput placeholder="" [(ngModel)]="newEmployeeData.nic" name="nic"
+                        required>
+                    <mat-error *ngIf="leaveControl.hasError('required')">NIC is required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <mat-form-field>
+                    <label>Mobile <i>*</i></label>
+                    <input matInput placeholder="" [(ngModel)]="newEmployeeData.mobile" name="mobile"
+                        required>
+                    <mat-error *ngIf="leaveControl.hasError('required')">Mobile is required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <mat-form-field>
+                    <label>Telephone</label>
+                    <input matInput placeholder="" [(ngModel)]="newEmployeeData.telephone" name="telephone">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <mat-form-field>
+                    <label>Utilized Annual Count <i>*</i></label>
+                    <input min="0" max="14" type="number" matInput placeholder="" [(ngModel)]="newEmployeeData.utilizedAnnualCount" name="utilizedAnnualCount"
+                        required>
+                    <mat-error *ngIf="leaveControl.hasError('required')">Count is required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <mat-form-field>
+                    <label>Utilized Casual Count <i>*</i></label>
+                    <input min="0" max="7" type="number" matInput placeholder="" [(ngModel)]="newEmployeeData.utilizedCasualCount" name="utilizedCasualCount"
+                        required>
+                    <mat-error *ngIf="leaveControl.hasError('required')">Count is required</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 col-md-3">
+                <mat-form-field>
+                    <label>Utilized Short Leave Count <i>*</i></label>
+                    <input min="0" max="2" type="number" matInput placeholder="" [(ngModel)]="newEmployeeData.utilizedShortLeaveCount" name="utilizedShortLeaveCount"
+                        required>
+                    <mat-error *ngIf="leaveControl.hasError('required')">Count is required</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close class="dgr-btn btn"><i class="fa-regular fa-circle-xmark"></i> Cancel</button>
+    <button mat-button [mat-dialog-close]="newEmployeeData" cdkFocusInitial class="apr-btn btn"><i class="{{ mode ? 'fa-regular fa-floppy-disk' : 'fa-solid fa-circle-plus' }}"></i> {{ mode ? 'Update' : 'Add' }}</button>
+</mat-dialog-actions>

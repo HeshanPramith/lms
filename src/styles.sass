@@ -218,66 +218,86 @@ footer
 .fc-daygrid-day
     cursor: pointer
 
+.event-title
+    font-size: 12px
+    position: relative
+    padding: 3px 0 0 8px
+    color: #000000
+    width: calc(100% + -30px)
+    float: left
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+
+.event-image
+    width: 40px
+    float: left
+    margin: 5px 0
+    border-radius: 100%
+    border: solid 2px #FFFFFF
+
 .freqcal
+
+    .fc-dayGridMonth-view
     
-    .fc-event
-        border: none !important
-        box-shadow: none !important
-        margin-bottom: 5px
-        padding: 6px
-        
-        &.fc-h-event
-            border-radius: 50px
-            background: rgb(7,163,20)
-            background: linear-gradient(90deg, #003858 0%, #0683bd 70%)
+        .fc-event
+            border: none !important
+            box-shadow: none !important
+            margin-bottom: 5px
+            padding: 6px
+            
+            &.fc-h-event
+                border-radius: 50px
+                background: rgb(7,163,20)
+                background: linear-gradient(90deg, #003858 0%, #0683bd 70%)
+
+                .event-title
+                    font-size: 12px
+                    position: relative
+                    padding: 3px 0 0 8px
+                    color: #FFFFFF
+                    width: calc(100% + -30px)
+                    float: left
+                    white-space: nowrap
+                    overflow: hidden
+                    text-overflow: ellipsis
+
+                .event-image
+                    width: 25px
+                    border-radius: 100%
+                    border: solid 2px #FFFFFF
+
+            &.fc-event-future
+                border-radius: 50px
+                background: rgb(7,163,20)
+                background: linear-gradient(90deg, #003858 0%, #0683bd 70%)
+
+                .event-title
+                    font-size: 12px
+                    position: relative
+                    padding: 3px 0 0 8px
+                    color: #FFFFFF
+
+                .event-image
+                    width: 25px
+                    border-radius: 100%
+                    border: solid 2px #FFFFFF
+
+            &:hover
+                background: $success
+
+        .extended-cal
+            display: flex
 
             .event-title
                 font-size: 12px
                 position: relative
                 padding: 3px 0 0 8px
-                color: #FFFFFF
-                width: calc(100% + -30px)
-                float: left
-                white-space: nowrap
-                overflow: hidden
-                text-overflow: ellipsis
 
             .event-image
                 width: 25px
                 border-radius: 100%
                 border: solid 2px #FFFFFF
-
-        &.fc-event-future
-            border-radius: 50px
-            background: rgb(7,163,20)
-            background: linear-gradient(90deg, #003858 0%, #0683bd 70%)
-
-            .event-title
-                font-size: 12px
-                position: relative
-                padding: 3px 0 0 8px
-                color: #FFFFFF
-
-            .event-image
-                width: 25px
-                border-radius: 100%
-                border: solid 2px #FFFFFF
-
-        &:hover
-            background: $success
-
-    .extended-cal
-        display: flex
-
-        .event-title
-            font-size: 12px
-            position: relative
-            padding: 3px 0 0 8px
-
-        .event-image
-            width: 25px
-            border-radius: 100%
-            border: solid 2px #FFFFFF
 
 
 .mat-mdc-dialog-title
@@ -354,10 +374,10 @@ footer
 
 label
     font-size: 12px !important
-    font-weight: 500
+    font-weight: 400
     line-height: normal !important
     float: left
-    color: $base-color
+    color: #000000
     width: $f-width
 
     i
@@ -453,8 +473,18 @@ input, textarea
     font-size: 16px
     margin: 5px 0
 
+.freqcal
+
+    .fc-scroller-harness
+        max-height: calc(100vh - 194px)
+        overflow-y: auto
+        overflow-x: hidden
+
 .pager-wrap
     padding: 15px 5px
+    // max-height: calc(100vh - 110px)
+    overflow-y: auto
+    overflow-x: hidden
 
 .pager-wrap-sec
     max-height: calc(100vh - 110px)
@@ -469,6 +499,9 @@ input, textarea
     padding: 10px
     background: #FFFFFF
     margin-bottom: 10px
+
+    .mat-mdc-form-field-subscript-wrapper
+        display: none
 
 .inner-tbl
 
@@ -496,7 +529,7 @@ input, textarea
 
     i
         margin: 0
-        font-size: 18px
+        font-size: 16px
 
     &.ed
 
@@ -556,10 +589,14 @@ input, textarea
 .mat-mdc-header-row
 
     th
-        background-color: #3c3c3c !important
+        background-color: $base-color !important
+        font-weight: 400 !important
+        font-size: 12px !important
 
         div 
             color: #FFFFFF !important
+            font-weight: 400 !important
+            font-size: 12px !important
 
 
 .inactive
@@ -567,6 +604,16 @@ input, textarea
     td
         background-color: #ffcccc50 !important
         color: #b2b2b2 !important
+
+.mat-mdc-table
+
+    .mat-mdc-header-row
+        height: 40px
+        min-height: 30px
+
+    .mat-mdc-row
+        height: 40px
+        min-height: 30px
 
 
 

@@ -6,15 +6,14 @@
                 <mat-form-field>
                     <label>Leave Type <i>*</i></label>
                     <mat-select [formControl]="leaveControl" placeholder="Select Leave Type">
-                        <mat-option *ngFor="let leave of leaves" [value]="leave">{{ leave.name }} ({{ leave.balance
-                            }})</mat-option>
+                        <mat-option *ngFor="let leave of leaves" [value]="leave">{{ leave.name }} <ng-container *ngIf="leave.name !== 'Half Day Leave'">({{ leave.balance }})</ng-container></mat-option>
                     </mat-select>
                     <mat-error *ngIf="leaveControl.hasError('required')">Leave type is required</mat-error>
                 </mat-form-field>
             </div>
         </div>
         <div class="row">
-            <div [class]="leaveControl.value && (leaveControl.value.name === 'Short Leave') ? 'col-xs-12 col-sm-5' : 'col-xs-12 col-sm-7'" *ngIf="leaveControl.value && (leaveControl.value.name === 'Annual Leave' || leaveControl.value.name === 'Casual Leave' || leaveControl.value.name === 'Short Leave')">
+            <div [class]="leaveControl.value && (leaveControl.value.name === 'Short Leave' || leaveControl.value.name === 'Half Day Leave') ? 'col-xs-12 col-sm-5' : 'col-xs-12 col-sm-7'" *ngIf="leaveControl.value && (leaveControl.value.name === 'Annual Leave' || leaveControl.value.name === 'Casual Leave' || leaveControl.value.name === 'Short Leave' || leaveControl.value.name === 'Half Day Leave' || leaveControl.value.name === 'Medical Leave')">
                 <mat-form-field>
                     <label>From Date <i>*</i></label>
                     <input matInput [matDatepicker]="fromdate" required [value]="selectedDate" (dateChange)="fromDateChanged($event)">
@@ -22,17 +21,17 @@
                     <mat-datepicker #fromdate></mat-datepicker>
                 </mat-form-field>
             </div>
-            <div class="col-xs-12 col-sm-5" *ngIf="leaveControl.value && (leaveControl.value.name === 'Annual Leave' || leaveControl.value.name === 'Casual Leave')">
+            <div class="col-xs-12 col-sm-5" *ngIf="leaveControl.value && (leaveControl.value.name === 'Annual Leave' || leaveControl.value.name === 'Casual Leave' || leaveControl.value.name === 'Medical Leave')">
                 <mat-checkbox class="example-margin" [(ngModel)]="isHalfDayFrom">Half Day</mat-checkbox>
             </div>
-            <div class="col-xs-12 col-sm-7" *ngIf="leaveControl.value && (leaveControl.value.name === 'Short Leave')">
+            <div class="col-xs-12 col-sm-7" *ngIf="leaveControl.value && (leaveControl.value.name === 'Short Leave' || leaveControl.value.name === 'Half Day Leave')">
                 <mat-radio-group aria-label="Select an option" class="row">
                     <mat-radio-button value="1" class="col-xs-12 col-sm-6">Morning</mat-radio-button>
                     <mat-radio-button value="2" class="col-xs-12 col-sm-6">Evening</mat-radio-button>
                 </mat-radio-group>
             </div>
         </div>
-        <div class="row" *ngIf="leaveControl.value && (leaveControl.value.name === 'Annual Leave' || leaveControl.value.name === 'Casual Leave')">
+        <div class="row" *ngIf="leaveControl.value && (leaveControl.value.name === 'Annual Leave' || leaveControl.value.name === 'Casual Leave' || leaveControl.value.name === 'Medical Leave')">
             <div class="col-xs-12 col-sm-7">
                 <mat-form-field>
                     <label>To Date <i>*</i></label>
@@ -45,7 +44,7 @@
                 <mat-checkbox class="example-margin" [(ngModel)]="isHalfDayTo">Half Day</mat-checkbox>
             </div>
         </div>
-        <div class="row mb-3" *ngIf="leaveControl.value && (leaveControl.value.name === 'Annual Leave' || leaveControl.value.name === 'Casual Leave')">
+        <div class="row mb-3" *ngIf="leaveControl.value && (leaveControl.value.name === 'Annual Leave' || leaveControl.value.name === 'Casual Leave' || leaveControl.value.name === 'Medical Leave')">
             <div class="col-xs-12 text-center">
                 <div class="noofdays">No. Of Days: {{ numberOfDays }}</div>
             </div>

@@ -22,6 +22,7 @@ interface notifyperson {
   templateUrl: './apply-leave-modal.component.html',
   styleUrls: ['./apply-leave-modal.component.sass'],
 })
+
 export class ApplyLeaveModalComponent {
   selectedDate: string;
   numberOfDays: number = 0;
@@ -39,6 +40,7 @@ export class ApplyLeaveModalComponent {
     { name: 'Casual Leave', balance: 7 },
     { name: 'Short Leave', balance: 2 },
     { name: 'Medical Leave', balance: 10 },
+    { name: 'Half Day Leave', balance: 0 }
   ];
 
   actingpersons: actingperson[] = [
@@ -62,7 +64,8 @@ export class ApplyLeaveModalComponent {
     if (
       this.leaveControl.value &&
       (this.leaveControl.value.name === 'Annual Leave' ||
-        this.leaveControl.value.name === 'Casual Leave')
+        this.leaveControl.value.name === 'Casual Leave' ||
+        this.leaveControl.value.name === 'Medical Leave')
     ) {
       if (this.isHalfDayFrom) {
         weekdays -= 0.5;

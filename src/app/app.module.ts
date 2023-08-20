@@ -30,6 +30,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { EmployeeComponent } from './modules/employee/employee.component';
+import { EmployeeAddModalComponent } from './modules/employee/employee-add-modal/employee-add-modal.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 @NgModule({
@@ -46,6 +49,7 @@ import { EmployeeComponent } from './modules/employee/employee.component';
     RequestedLeaveModalComponent,
     DepartmentComponent,
     EmployeeComponent,
+    EmployeeAddModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +71,9 @@ import { EmployeeComponent } from './modules/employee/employee.component';
     MatSortModule,
     MatTableModule,
     MatIconModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatDividerModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [MainComponent]
