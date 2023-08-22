@@ -1,3 +1,17 @@
-<div class="col col-sm-12 p-0">
-    <full-calendar [options]="calendarOptions" class="fcalendar"></full-calendar>
+<div id="wrapper">
+    <aside class="sidebar" [ngClass]="{'active': isSidebarActive}">
+        <app-sidebar></app-sidebar>
+    </aside>
+    <section class="main-section" [ngClass]="{'active': isSidebarActive}">
+        <app-topbar></app-topbar>
+        <div class="pager-wrap">
+            <div class="container-fluid">
+                <div class="col col-sm-12 p-0">
+                    <full-calendar [options]="calendarOptions" class="fcalendar"></full-calendar>
+                </div>
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </section>    
 </div>
+

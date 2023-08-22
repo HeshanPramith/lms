@@ -6,9 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./main.component.sass']
 })
 export class MainComponent {
-  isHidden: boolean = false;
-
-  toggleSidebar() {
-    this.isHidden = !this.isHidden;
-  }
 }

@@ -1,0 +1,185 @@
+@import "../../../variables.sass"
+    
+.slide 
+    .card
+        margin-top: 10px
+        margin-bottom: 10px
+        transition: all .4s
+        background: linear-gradient(0deg, rgb(236, 236, 236) 0%, rgba(255,255,255,1) 100%)
+
+        &:hover
+            //box-shadow: 0px 0px 10px -2px rgb(0 0 0 / 20%)
+            cursor: pointer
+            transition: all .4s
+            background: #FFFFFF
+            
+            
+
+.card
+    text-align: center
+    padding: 20px 15px
+    margin: 0 10px 0 0
+    border: none
+
+    i
+        position: relative
+        top: 1px
+        margin: 0 5px 0 0
+
+    img
+        width: 100px !important
+        border-radius: 100%
+        display: inline-block
+        margin: 0 0 15px 0
+
+    h3
+        float: left
+        width: $f-width
+        font-size: 14px
+        margin: 0 0 10px 0
+
+    p
+        float: left
+        width: $f-width
+        font-size: 12px
+        margin: 5px 0
+        color: #707070
+
+        &:last-child
+            margin-bottom: 0 !important
+
+h5
+    float: left
+    width: auto
+    font-size: 16px
+    margin: 5px 0 10px 0
+
+.owl-wrapper
+    position: relative
+    float: left
+    width: $f-width
+
+    &::after
+        width: 300px
+        height: 271px
+        z-index: 10000
+        content: ""
+        background: rgb(255,255,255)
+        background: linear-gradient(90deg, #f1f1f100 0%, #f1f1f1 100%)
+        position: absolute
+        top: 0
+        right: 0
+        pointer-events: none
+
+
+span
+    font-weight: 400
+    padding: 4px 5px 3px 5px
+    border-radius: 5px
+    color: #FFFFFF
+    font-size: 10px
+    width: 10px
+    height: 10px
+    float: left
+    margin-left: 12px
+    text-align: center
+    text-transform: uppercase
+
+    &.status-approved
+        background: #1cbb44
+
+    &.status-pending
+        background: #2b6eeb
+
+    &.status-rejected
+        background: #f72323
+
+.avbl
+    position: absolute
+    left: 22px
+    top: 4px
+    width: 12px
+    height: 12px
+    padding: 0
+    border-radius: 100%
+    border: solid 2px #FFFFFF
+
+    &.availability-working
+        background: #1cbb44
+
+    &.availability-leave
+        background: #f72323
+
+td
+    position: relative
+    img
+        border-radius: 100%
+
+.mat-mdc-table
+    width: 100%
+    max-height: 100px
+    overflow: auto
+
+.leave-card
+    display: block
+    position: relative
+    overflow: hidden
+    cursor: pointer
+
+    &:hover
+        
+        &::before
+            border: solid 3px rgb(255, 255, 255)
+            background: hsla(0,0%,100%,.141)
+            transition: all .4s
+
+    &::before
+        background: hsla(0,0%,100%,.141)
+        border-radius: 100%
+        content: ""
+        height: 200px
+        left: 0
+        right: 0
+        position: absolute
+        top: -139px
+        width: 200px
+        z-index: 1
+        margin: 0 auto
+        border: solid 3px rgba(255, 255, 255, 0.1490196078)
+        box-shadow: 0px 7px 39px -9px rgb(0 0 0 / 15%)
+        transition: all .4s
+    
+    p
+        color: #FFFFFF
+        font-size: 30px
+        font-family: 'Archivo', sans-serif
+        padding: 0
+        display: inline-block
+        width: auto
+        float: none
+        margin: -15px 0 26px 0
+
+        small
+            font-size: 16px
+            opacity: 0.6
+
+    h2
+        color: #FFFFFF
+        font-size: 14px
+        font-weight: 400
+
+    &.annual
+        background: #0069c5
+
+    &.casual
+        background: #00ac4a
+
+    &.medical
+        background: #f49900
+
+    &.short
+        background: #f55c07
+
+    
+  
+

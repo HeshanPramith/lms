@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ApplyLeaveModalComponent } from './apply-leave-modal/apply-leave-modal.component';
 import interactionPlugin from '@fullcalendar/interaction';
 import { EventInput } from '@fullcalendar/core';
+import { SidebarService } from 'src/app/core/layout/sidebar/sidebar.service';
 
 @Component({
   selector: 'app-applyleave',
@@ -60,7 +61,15 @@ export class ApplyleaveComponent {
     }
   };
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, public sidebarService: SidebarService) {}
+
+  isSidebarActive: boolean = false;
+
+  ngOnInit() {
+    this.sidebarService.getSidebarState().subscribe(isHidden => {
+      this.isSidebarActive = !isHidden;
+    });
+  }
 
   openModal(eventTitle: string, eventDescription: string, selectedDate: string) {
     const dialogRef = this.dialog.open(ApplyLeaveModalComponent, {

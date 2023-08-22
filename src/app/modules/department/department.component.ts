@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { SidebarService } from 'src/app/core/layout/sidebar/sidebar.service';
 
 interface Department {
   department: string;
@@ -26,7 +27,7 @@ export class DepartmentComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor() {
+  constructor(public sidebarService: SidebarService) {
     const departments: Department[] = [
       { department: 'HR /Admin', description: 'HR /Admin description', status: 'Active' },
       { department: 'Development', description: 'Development description', status: 'Active' },
@@ -42,6 +43,14 @@ export class DepartmentComponent implements AfterViewInit {
     }
 
     this.dataSource = new MatTableDataSource(departments);
+  }
+
+  isSidebarActive: boolean = false;
+
+  ngOnInit() {
+    this.sidebarService.getSidebarState().subscribe(isHidden => {
+      this.isSidebarActive = !isHidden;
+    });
   }
 
   ngAfterViewInit() {

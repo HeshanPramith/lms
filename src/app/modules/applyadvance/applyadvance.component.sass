@@ -1,0 +1,22 @@
+td
+    &:nth-child(2)
+        text-transform: capitalize
+        
+.new-record-row
+    background-color: #d4edda
+
+    td
+        &:first-child
+            position: relative
+
+            &::before
+                content: ""
+                left: 0
+                top: 12px
+                width: 0
+                height: 0
+                position: absolute
+                z-index: 10
+                border-top: 7px solid transparent
+                border-bottom: 7px solid transparent
+                border-left: 7px solid green

@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { RequestedLeaveModalComponent } from './requested-leave-modal/requested-leave-modal.component';
 import { ApplyLeaveModalComponent } from '../applyleave/apply-leave-modal/apply-leave-modal.component';
 import interactionPlugin from '@fullcalendar/interaction';
+import { SidebarService } from 'src/app/core/layout/sidebar/sidebar.service';
 
 @Component({
   selector: 'app-requestedleaves',
@@ -76,7 +77,15 @@ export class RequestedleavesComponent {
     }
   };
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, public sidebarService: SidebarService) {}
+
+  isSidebarActive: boolean = false;
+
+  ngOnInit() {
+    this.sidebarService.getSidebarState().subscribe(isHidden => {
+      this.isSidebarActive = !isHidden;
+    });
+  }
 
   openModal(eventTitle: string, eventDescription: string, eventEmp: string, eventStart: string, eventEnd: string, eventImage: string) {
     const startDate = new Date(eventStart);

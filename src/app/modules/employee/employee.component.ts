@@ -1,23 +1,28 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { EmployeeAddModalComponent } from './employee-add-modal/employee-add-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Employee } from './employee.model';
+import { EmployeeService } from './employee.service';
+import { SidebarService } from 'src/app/core/layout/sidebar/sidebar.service';
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.sass'],
 })
-export class EmployeeComponent {
+export class EmployeeComponent implements OnInit {
+
+  @Output() employeeData = new EventEmitter<Employee[]>();
+
   [x: string]: any;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private employeeService: EmployeeService, public sidebarService: SidebarService) {
     const employees: Employee[] = [
       {
         epfNumber: '001',
@@ -283,5 +288,16 @@ export class EmployeeComponent {
   applyFilter(event: any) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  isSidebarActive: boolean = false;
+
+  ngOnInit() {
+    this.employeeData.emit(this.dataSource.data);
+    const employees: Employee[] = [/* ... */];
+    this.employeeService.updateEmployeeData(employees);
+    this.sidebarService.getSidebarState().subscribe(isHidden => {
+      this.isSidebarActive = !isHidden;
+    });
   }
 }

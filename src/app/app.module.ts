@@ -33,7 +33,12 @@ import { EmployeeComponent } from './modules/employee/employee.component';
 import { EmployeeAddModalComponent } from './modules/employee/employee-add-modal/employee-add-modal.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTabsModule } from '@angular/material/tabs';
-
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ApplyadvanceComponent } from './modules/applyadvance/applyadvance.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { LoginComponent } from './modules/login/login.component';
+import { ApplyAdvanceModalComponent } from './modules/applyadvance/apply-advance-modal/apply-advance-modal.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -50,6 +55,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     DepartmentComponent,
     EmployeeComponent,
     EmployeeAddModalComponent,
+    ApplyadvanceComponent,
+    LoginComponent,
+    ApplyAdvanceModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,8 +82,10 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSlideToggleModule,
     MatDividerModule,
     MatTabsModule,
+    CarouselModule,
+    MatMenuModule,
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [MainComponent]
 })
 export class AppModule { }

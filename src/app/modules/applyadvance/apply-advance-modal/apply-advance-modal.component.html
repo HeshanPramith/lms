@@ -1,0 +1,57 @@
+<h2 mat-dialog-title>Apply Salary Advance</h2>
+<mat-dialog-content class="lv-app comm-modal">
+    <!-- <form> -->
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 mb-3">
+                <mat-form-field>
+                    <label>Apply Date:</label>
+                    <input matInput type="text" min="0" id="applyDate" [(ngModel)]="applyDate" (input)="calculateTotal()">
+                </mat-form-field>
+            </div>
+            <div class="col-xs-6 col-sm-6 mb-3">
+                <mat-form-field>
+                    <label>Apply Month</label>
+                    <mat-select id="month" [(ngModel)]="selectedMonthValue" name="month">
+                        <mat-option *ngFor="let month of months" [value]="month.value">
+                            {{month.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-xs-6 col-sm-6 mb-3">
+                <mat-form-field>
+                    <label>10<sup>th</sup></label>
+                    <input matInput type="number" min="0" id="firstAmount" [(ngModel)]="firstAmount"
+                        (input)="calculateTotal()">
+                </mat-form-field>
+            </div>
+            <div class="col-xs-6 col-sm-6 mb-3">
+                <mat-form-field>
+                    <label>20<sup>th</sup></label>
+                    <input matInput type="number" min="0" id="secondAmount" [(ngModel)]="secondAmount"
+                        (input)="calculateTotal()">
+                </mat-form-field>
+            </div>
+            <div class="col-xs-6 col-sm-6 mb-3">
+                <b>Total : <span>{{ firstAmount + secondAmount }}</span></b>
+            </div>
+            <div class="col-xs-6 col-sm-6 mb-3">
+                <b>Month : <span>{{ selectedMonthValue }}</span></b>
+            </div>            
+            <div class="col-xs-12 mb-3">
+                <p>I apply for the above mentioned salary advance for the month of <span>{{ selectedMonthValue }}</span>
+                    and authorize to deduct the total salary advance amount from the Salary for the month of <span>{{
+                        selectedMonthValue }}</span> {{ currentYear }}.</p>
+            </div>
+            <div class="col-xs-12 col-sm-12 mb-3 text-center">
+                <mat-checkbox class="mtchk">Agreed</mat-checkbox>
+            </div>
+        </div>
+    <!-- </form> -->
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close class="dgr-btn btn"><i class="fa-regular fa-circle-xmark"></i> Cancel</button>
+    <button (click)="onSubmit()" mat-button [mat-dialog-close]="" cdkFocusInitial class="apr-btn btn"><i class="fa-solid fa-circle-plus"></i>
+        Apply</button>
+</mat-dialog-actions>
+

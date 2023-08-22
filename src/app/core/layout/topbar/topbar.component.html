@@ -1,1 +1,18 @@
-<p>topbar works!</p>
+<header>
+    <div class="app-toggler">
+        <button (click)="toggleSidebar()" *ngIf="isHidden" class="menu-btn"><i class="fa-solid fa-bars"></i> <span>Menu</span></button>
+        <button (click)="toggleSidebar()" *ngIf="!isHidden" class="menu-close-btn"><i class="fa-solid fa-arrow-left"></i></button>
+    </div>
+    <div class="app-bar">
+        <div class="userblock">
+            <img src="../../../../assets/img/user.jpg" class="img-fluid">
+            <h4>Heshan Pramith</h4>
+            <button mat-button [matMenuTriggerFor]="menu"><i class="fa-solid fa-chevron-down"></i></button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>Settings</button>
+                <mat-divider></mat-divider>
+                <button mat-menu-item routerLink="/login">Logout</button>
+            </mat-menu>
+        </div>
+    </div>
+</header>

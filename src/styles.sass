@@ -1,3 +1,6 @@
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel'
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default'
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;300;400;500;600;700;800;900&display=swap')
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap')
 @import "variables.sass"
 
@@ -23,16 +26,24 @@ body
     width: 100%
     height: 100%
 
-section
-    float: right
-    position: relative
-    width: calc( $f-width - 250px )
-    height: 100vh
-    transition: width 0.3s ease, transform 0.3s ease
+.app-toggler
+    float: left
+    width: auto
 
-    &.move-left
-        width: 100%
-        transform: translateX(0px)
+section
+    width: 100%
+    float: right
+    transform: translateX(0px)
+    transition: width 0.3s ease, transform 0.3s ease
+    height: 100vh
+
+    &.active
+        float: right
+        position: relative
+        width: calc( $f-width - 250px )
+        height: 100vh
+        transition: width 0.3s ease, transform 0.3s ease
+        
 
 header
     position: absolute
@@ -68,8 +79,8 @@ aside
     top: 0
     left: 0
     position: fixed
-    height: 100vh   
-    z-index: 5  
+    height: 100vh
+    z-index: 5
     padding: 0
 
 footer
@@ -139,7 +150,7 @@ footer
             color: $base-color
 
     .fc-day-sun, .fc-day-sat
-        
+
         a
             color: #FFFFFF !important
 
@@ -151,7 +162,7 @@ footer
     .fc-highlight
         background: #109b2eb2
 
-.fc-dayGridMonth-view 
+.fc-dayGridMonth-view
 
     a
         text-decoration: none !important
@@ -167,7 +178,7 @@ footer
 
             &:last-child
                 border-radius: 0 5px 0 0 !important
-            
+
             a
                 color: #FFFFFF !important
 
@@ -182,7 +193,7 @@ footer
 
         &.fc-day-today
             background: #5469e2 !important
-        
+
         a
             color: $base-color !important
 
@@ -190,7 +201,6 @@ footer
 
         .fc-icon
             font-size: 1.2em !important
-
 
 .fc-toolbar-title
     font-size: 16px !important
@@ -211,42 +221,108 @@ footer
     background-color: #f0f0f0 !important
 
 .multi-day-event
-    
+
     .fc-scrollgrid-sync-table, .fc-daygrid-body
         width: $f-width !important
 
 .fc-daygrid-day
     cursor: pointer
 
-.event-title
-    font-size: 12px
-    position: relative
-    padding: 3px 0 0 8px
-    color: #000000
-    width: calc(100% + -30px)
-    float: left
-    white-space: nowrap
-    overflow: hidden
-    text-overflow: ellipsis
-
-.event-image
-    width: 40px
-    float: left
-    margin: 5px 0
-    border-radius: 100%
-    border: solid 2px #FFFFFF
-
 .freqcal
 
-    .fc-dayGridMonth-view
-    
+    .fc-timeGridWeek-view
+
         .fc-event
             border: none !important
             box-shadow: none !important
             margin-bottom: 5px
             padding: 6px
-            
-            &.fc-h-event
+
+            .event-title
+                font-size: 12px
+                position: relative
+                padding: 3px 0 0 8px
+                color: #FFFFFF
+                width: calc(100% + -50px)
+                float: left
+                white-space: nowrap
+                overflow: hidden
+                text-overflow: ellipsis
+                line-height: 36px
+
+            .event-image
+                width: 35px
+                float: left
+                margin: 5px 0
+                border-radius: 100%
+                border: solid 2px #FFFFFF
+
+    .fc-timeGridDay-view
+
+        .fc-event
+            border: none !important
+            box-shadow: none !important
+            margin-bottom: 5px
+            padding: 6px
+
+            .event-title
+                font-size: 12px
+                position: relative
+                padding: 3px 0 0 8px
+                color: #FFFFFF
+                width: calc(100% + -50px)
+                float: left
+                white-space: nowrap
+                overflow: hidden
+                text-overflow: ellipsis
+                line-height: 38px
+
+            .event-image
+                width: 35px
+                float: left
+                margin: 5px 0
+                border-radius: 100%
+                border: solid 2px #FFFFFF
+
+    .fc-listWeek-view
+
+        .fc-event
+            border: none !important
+            box-shadow: none !important
+            margin-bottom: 5px
+            padding: 0 6px
+
+            .event-title
+                font-size: 12px
+                position: relative
+                padding: 3px 0 0 8px
+                color: #000000
+                width: auto !important
+                float: left
+                white-space: nowrap
+                overflow: hidden
+                text-overflow: ellipsis
+                line-height: 29px
+
+            .event-image
+                width: 35px
+                float: left
+                margin: 0
+                border-radius: 100%
+                border: solid 2px #FFFFFF
+
+            .fc-list-event-dot
+                top: 9px !important
+
+    .fc-dayGridMonth-view
+
+        .fc-event
+            border: none !important
+            box-shadow: none !important
+            margin-bottom: 5px
+            padding: 6px
+
+            &.fc-h-event, &.fc-event-future
                 border-radius: 50px
                 background: rgb(7,163,20)
                 background: linear-gradient(90deg, #003858 0%, #0683bd 70%)
@@ -254,32 +330,17 @@ footer
                 .event-title
                     font-size: 12px
                     position: relative
-                    padding: 3px 0 0 8px
+                    padding: 5px 8px
                     color: #FFFFFF
-                    width: calc(100% + -30px)
+                    width: calc(100% + -40px)
                     float: left
                     white-space: nowrap
                     overflow: hidden
                     text-overflow: ellipsis
 
                 .event-image
-                    width: 25px
-                    border-radius: 100%
-                    border: solid 2px #FFFFFF
-
-            &.fc-event-future
-                border-radius: 50px
-                background: rgb(7,163,20)
-                background: linear-gradient(90deg, #003858 0%, #0683bd 70%)
-
-                .event-title
-                    font-size: 12px
-                    position: relative
-                    padding: 3px 0 0 8px
-                    color: #FFFFFF
-
-                .event-image
-                    width: 25px
+                    width: 30px
+                    height: 30px
                     border-radius: 100%
                     border: solid 2px #FFFFFF
 
@@ -298,7 +359,6 @@ footer
                 width: 25px
                 border-radius: 100%
                 border: solid 2px #FFFFFF
-
 
 .mat-mdc-dialog-title
     padding: 10px 15px !important
@@ -323,8 +383,9 @@ footer
         color: $base-color
 
 .mat-mdc-dialog-actions
-    padding: 0 15px 10px 15px !important
+    padding: 10px 15px 10px 15px !important
     justify-content: flex-end !important
+    background: #f0f0f0
 
     button
         margin: 0 0 0 10px
@@ -343,15 +404,15 @@ footer
     color: #FFFFFF !important
 
     &:hover
-        box-shadow: 0px 0px 4px 1px $third-base !important
+        box-shadow: 0px 0px 11px -1px $third-base !important
 
 .apr-btn
     background: $success !important
     color: #FFFFFF !important
 
     &:hover
-        box-shadow: 0px 0px 4px 1px $success !important
-        transition: all .3s
+        box-shadow: 0px 0px 11px -1px #099615 !important
+        transition: all 0.3s
 
 .cdk-overlay-dark-backdrop
     background: rgb(0,0,0) !important
@@ -422,9 +483,9 @@ input, textarea
 
         &:active
             background: none !important
-            
+
 .lv-app
-    
+
     .mat-mdc-checkbox-checked
 
         .mdc-checkbox__background
@@ -445,7 +506,7 @@ input, textarea
                 border-color: $base-color !important
 
             .mdc-radio__inner-circle
-                border-color: $base-color !important    
+                border-color: $base-color !important
 
             &::before
                 background: none !important
@@ -476,7 +537,7 @@ input, textarea
 .freqcal
 
     .fc-scroller-harness
-        max-height: calc(100vh - 194px)
+        max-height: calc(100vh - 240px)
         overflow-y: auto
         overflow-x: hidden
 
@@ -488,9 +549,10 @@ input, textarea
 
 .pager-wrap-sec
     max-height: calc(100vh - 110px)
-    overflow-y: auto
-    overflow-x: hidden
     padding: 0 !important
+
+.mat-mdc-table-sticky
+    top: -16px !important
 
 .comm-wrap-bx
     float: left
@@ -507,7 +569,7 @@ input, textarea
 
     th
         color: #FFFFFF !important
-    
+
     td
         font-size: $base-font
         padding: 0px 15px !important
@@ -516,7 +578,10 @@ input, textarea
         .mat-mdc-form-field-subscript-wrapper
             display: none
 
-.editable-row 
+        b
+            color: #000000
+
+.editable-row
 
     td
         background-color: #e6fce7
@@ -537,12 +602,12 @@ input, textarea
             color: #333333 !important
 
     &.sv
-        
+
         i
             color: $success !important
 
     &.cn
-        
+
         i
             color: $third-base !important
 
@@ -550,7 +615,6 @@ input, textarea
     padding-left: 10px !important
     padding-right: 10px !important
     padding-top: 4px !important
-
 
 .mdc-switch:enabled
 
@@ -562,7 +626,7 @@ input, textarea
 .mdc-switch.mdc-switch--selected:enabled
 
     .mdc-switch__handle
-        
+
         &::after
             background: $success !important
 
@@ -593,14 +657,13 @@ input, textarea
         font-weight: 400 !important
         font-size: 12px !important
 
-        div 
+        div
             color: #FFFFFF !important
             font-weight: 400 !important
             font-size: 12px !important
 
-
 .inactive
-    
+
     td
         background-color: #ffcccc50 !important
         color: #b2b2b2 !important
@@ -615,6 +678,47 @@ input, textarea
         height: 40px
         min-height: 30px
 
+.mat-mdc-paginator-container
+    background: #fcfcfc
+    min-height: auto !important
+    border-top: solid 1px #EEEEEE
 
+.mdc-icon-button
+    svg
+        position: relative
+        top: 3px
 
+tbody
 
+    tr
+        &:hover
+            
+            td
+                background: #EEEEEE
+                transition: all .4s
+                cursor: pointer
+
+.mat-mdc-menu-content
+    padding: 0 !important
+    margin: 0 !important
+
+    .mat-mdc-menu-item
+        min-height: auto
+        padding: 5px 10px
+
+        &:hover
+            color: #FFFFFF
+            background: $secondry-color !important
+
+.sidebar
+    transform: translateX(-100%)
+    transition: transform 0.3s ease
+
+    &.active        
+        width: 250px
+        transform: translateX(0%)
+        transition: transform 0.3s ease
+
+.comm-modal
+    .mat-mdc-form-field-subscript-wrapper
+        display: none !important
