@@ -7,26 +7,26 @@
       <div class="pager-wrap">
           <div class="container-fluid">
             <div class="pager-wrap-sec">
-              <div class="row mb-3">
-                <div class="col-xs-12 col-sm-4 col-md-3">
+              <div class="row mb-0 mb-sm-3">
+                <div class="col-6 col-sm-6 col-md-3 mb-3 mb-md-0">
                   <div class="card leave-card annual">
                     <p>7<small>/14</small></p>
                     <h2>Annual Leave</h2>
                   </div>
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-3">
+                <div class="col-6 col-sm-6 col-md-3 mb-3 mb-md-0">
                   <div class="card leave-card casual">
                     <p>4<small>/7</small></p>
                     <h2>Casual Leave</h2>
                   </div>
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-3">
+                <div class="col-6 col-sm-6 col-md-3 mb-3 mb-md-0">
                   <div class="card leave-card medical">
                     <p>5<small>/taken</small></p>
                     <h2>Medical Leave</h2>
                   </div>
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-3">
+                <div class="col-6 col-sm-6 col-md-3 mb-3 mb-md-0">
                   <div class="card leave-card short">
                     <p>2<small>/2</small></p>
                     <h2>Short Leave</h2>
@@ -34,16 +34,16 @@
                 </div>
               </div>
               <div class="row mb-3">
-                <div class="col-xs-12 col-sm-12 col-md-6 inner-tbl">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 inner-tbl">
                   <h5>Leave Record(s)</h5>
                   <table mat-table [dataSource]="dataSource" matSort>
                     <ng-container matColumnDef="employeeName">
-                      <th mat-header-cell *matHeaderCellDef width="112px" mat-sort-header>Leave Type</th>
+                      <th mat-header-cell *matHeaderCellDef width="140px" mat-sort-header>Leave Type</th>
                       <td mat-cell *matCellDef="let record">{{ record.leavetype }}</td>
                     </ng-container>
             
                     <ng-container matColumnDef="startDate">
-                      <th mat-header-cell *matHeaderCellDef width="100px">Start Date</th>
+                      <th mat-header-cell *matHeaderCellDef width="120px">Start Date</th>
                       <td mat-cell *matCellDef="let record">{{ record.startDate }}</td>
                     </ng-container>
             
@@ -52,7 +52,7 @@
                       <td mat-cell *matCellDef="let record">{{ record.endDate }}</td>
                     </ng-container>
             
-                    <ng-container matColumnDef="description">
+                    <ng-container matColumnDef="description" width="100px">
                       <th mat-header-cell *matHeaderCellDef>Reason</th>
                       <td mat-cell *matCellDef="let record">{{ record.description }}</td>
                     </ng-container>
@@ -68,7 +68,7 @@
             
                   <mat-paginator #paginator1 [pageSize]="5"></mat-paginator>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 inner-tbl">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 inner-tbl mt-3 mt-sm-0">
                   <h5>Team Availability</h5>
                   <table mat-table [dataSource]="dataSource2" matSort>
                     <ng-container matColumnDef="name">
@@ -82,7 +82,7 @@
                     </ng-container>
             
                     <ng-container matColumnDef="avatar">
-                      <th mat-header-cell *matHeaderCellDef width="57px"></th>
+                      <th mat-header-cell *matHeaderCellDef width="60px"></th>
                       <td mat-cell *matCellDef="let user"><img [src]="user.avatar" alt="User Avatar" class="img-fluid"
                           [ngClass]="getAvailableLabelClass(user.availability)" /><span class="avbl"
                           [ngClass]="getAvailableLabelClass(user.availability)"> </span></td>

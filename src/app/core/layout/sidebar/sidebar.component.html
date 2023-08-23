@@ -1,3 +1,8 @@
+<div class="app-toggler d-block d-sm-block d-md-none">
+    <button (click)="toggleSidebar()" *ngIf="isHidden" class="menu-btn"><i class="fa-solid fa-bars"></i></button>
+    <button (click)="toggleSidebar()" *ngIf="!isHidden" class="menu-close-btn"><i class="fa-solid fa-bars"></i></button>
+</div>
+
 <h1>Design by<b> HESHAN</b></h1>
 
 <ul>

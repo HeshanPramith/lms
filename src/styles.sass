@@ -83,6 +83,26 @@ aside
     z-index: 5
     padding: 0
 
+    button
+        background: none
+        border: none
+        color: #FFFFFF
+        margin: 11px 10px 10px 10px
+        position: absolute
+        left: 0
+        top: 0
+
+        span
+            position: relative
+            float: left
+            font-size: 14px
+            margin: 0 0 0 15px
+
+        i
+            color: #FFFFFF
+            font-size: 20px
+            float: left
+
 footer
     position: absolute
     bottom: 0
@@ -322,7 +342,29 @@ footer
             margin-bottom: 5px
             padding: 6px
 
-            &.fc-h-event, &.fc-event-future
+            &.fc-h-event
+                border-radius: 50px
+                background: rgb(7,163,20)
+                background: linear-gradient(90deg, #003858 0%, #0683bd 70%)
+
+                .event-title
+                    font-size: 12px
+                    position: relative
+                    padding: 5px 8px
+                    color: #FFFFFF
+                    width: calc(100% + -20px)
+                    float: left
+                    white-space: nowrap
+                    overflow: hidden
+                    text-overflow: ellipsis
+
+                .event-image
+                    width: 30px
+                    height: 30px
+                    border-radius: 100%
+                    border: solid 2px #FFFFFF
+
+            &.fc-event-future
                 border-radius: 50px
                 background: rgb(7,163,20)
                 background: linear-gradient(90deg, #003858 0%, #0683bd 70%)
@@ -555,7 +597,6 @@ input, textarea
     top: -16px !important
 
 .comm-wrap-bx
-    float: left
     width: $f-width
     border-radius: 5px
     padding: 10px
@@ -762,13 +803,28 @@ tbody
                     color: $base-color
                     font-weight: 500
 
-.log-btn
+.in-btn
     background: $base-color
-    background: linear-gradient(90deg, $success 0%, rgb(0, 100, 25) 100%)
     color: #FFFFFF
     width: $f-width
     border-radius: 5px
     padding: 10px
+
+    &:hover
+        background: $success
+
+    i
+        margin-right: 5px
+
+.log-btn
+    background: $success
+    color: #FFFFFF
+    width: $f-width
+    border-radius: 5px
+    padding: 10px
+
+    &:hover
+        background: $base-color
 
     i
         margin-right: 5px
@@ -805,3 +861,21 @@ tbody
     img
         width: 15px
         margin: 0 5px 0 0
+
+@media screen and (max-width: 992px)
+    section
+
+        &.active
+            width: 100%
+
+    .sidebar
+        width: 250px
+        transform: translateX(0%)
+        transition: transform 0.3s ease
+
+        &.active
+            transform: translateX(-100%)
+            transition: transform 0.3s ease
+    
+
+    
