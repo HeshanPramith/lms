@@ -22,7 +22,7 @@
                 </mat-form-field>
             </div>
             <div class="col-xs-12 col-sm-5" *ngIf="leaveControl.value && (leaveControl.value.name === 'Annual Leave' || leaveControl.value.name === 'Casual Leave' || leaveControl.value.name === 'Medical Leave')">
-                <mat-checkbox class="example-margin" [(ngModel)]="isHalfDayFrom">Half Day</mat-checkbox>
+                <mat-checkbox class="example-margin" [(ngModel)]="isHalfDayFrom" (change)="handleHalfDayFromChange()">Half Day</mat-checkbox>
             </div>
             <div class="col-xs-12 col-sm-7" *ngIf="leaveControl.value && (leaveControl.value.name === 'Short Leave' || leaveControl.value.name === 'Half Day Leave')">
                 <mat-radio-group aria-label="Select an option" class="row">
@@ -41,7 +41,7 @@
                 </mat-form-field>
             </div>
             <div class="col-xs-12 col-sm-5">
-                <mat-checkbox class="example-margin" [(ngModel)]="isHalfDayTo">Half Day</mat-checkbox>
+                <mat-checkbox class="example-margin" [(ngModel)]="isHalfDayTo" (change)="handleHalfDayToChange()">Half Day</mat-checkbox>
             </div>
         </div>
         <div class="row mb-3" *ngIf="leaveControl.value && (leaveControl.value.name === 'Annual Leave' || leaveControl.value.name === 'Casual Leave' || leaveControl.value.name === 'Medical Leave')">

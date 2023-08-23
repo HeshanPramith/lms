@@ -722,3 +722,86 @@ tbody
 .comm-modal
     .mat-mdc-form-field-subscript-wrapper
         display: none !important
+
+.mat-mdc-tab-list
+    background: #f0f0f2
+    border-radius: 10px
+    padding: 5px
+
+    .mdc-tab-indicator
+        display: none
+
+    .mat-mdc-tab-ripple
+        border-radius: 10px
+
+    .mat-mdc-tab-labels
+
+        .mat-mdc-tab
+            height: 40px
+            border-radius: 10px
+
+            &:last-child
+                margin-left: 5px
+
+            &:hover
+                background: #FFFFFF
+                border-radius: 10px
+
+            span
+                font-weight: 500
+                color: #9c9c9c
+
+            &.mdc-tab--active
+                background: #FFFFFF
+                border-radius: 10px
+
+                .mdc-tab__ripple
+                    display: none
+
+                span
+                    color: $base-color
+                    font-weight: 500
+
+.log-btn
+    background: $base-color
+    background: linear-gradient(90deg, $success 0%, rgb(0, 100, 25) 100%)
+    color: #FFFFFF
+    width: $f-width
+    border-radius: 5px
+    padding: 10px
+
+    i
+        margin-right: 5px
+
+.sep
+    float: left
+    width: $f-width
+    border-bottom: solid 2px #EEEEEE
+    text-align: center
+
+    span
+        position: relative
+        top: 10px
+        display: inline-block
+        background: #FFFFFF
+        padding: 0 10px
+        color: #bdbdbd
+
+.g-btn
+    background: #FFFFFF
+    border: solid 3px #e0e0e08c !important
+    color: #8d8d8d
+    width: $f-width
+    border-radius: 5px
+    padding: 10px
+
+    &:hover
+        border-top-color: #3cba54 !important
+        border-right-color: #f4c20d !important
+        border-bottom-color: #db3236 !important
+        border-left-color: #4885ed !important
+        color: #000000
+
+    img
+        width: 15px
+        margin: 0 5px 0 0

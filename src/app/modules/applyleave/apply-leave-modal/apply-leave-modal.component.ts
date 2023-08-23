@@ -95,6 +95,22 @@ export class ApplyLeaveModalComponent {
     return weekdays;
   }
 
+  handleHalfDayFromChange(): void {
+    if (this.isHalfDayFrom) {
+      this.numberOfDays -= 0.5;
+    } else {
+      this.numberOfDays += 0.5;
+    }
+  }
+  
+  handleHalfDayToChange(): void {
+    if (this.isHalfDayTo) {
+      this.numberOfDays -= 0.5;
+    } else {
+      this.numberOfDays += 0.5;
+    }
+  }
+
   fromDateChanged(event: MatDatepickerInputEvent<Date>): void {
     if (event.value) {
       this.selectFormControl.setValue(null);

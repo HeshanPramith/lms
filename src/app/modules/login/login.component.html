@@ -1,3 +1,65 @@
-<a routerLink="/dashboard">
-    Link that uses a string.
-</a>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="bg">
+                <div class="para">
+                    <h3>Cras ullamcorper lacus eget enim semper ornare eget ut justo</h3>
+                    <p>Vivamus id odio in diam bibendum aliquam.</p>
+                    <p><small>Design & Developed BY Heshan @ GENESIIS</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <form>
+                    <h5>Welcome Back</h5>
+                    <p>Please enter your details</p>
+                    <mat-tab-group animationDuration="0ms">
+                        <mat-tab label="Sign In">
+                            <div class="py-3">
+                                <mat-form-field class="example-full-width">
+                                    <label>User Name/Email <i>*</i></label>
+                                    <input matInput>
+                                </mat-form-field>
+                                <mat-form-field class="example-full-width">
+                                    <label>Password <i>*</i></label>
+                                    <input matInput type="password">
+                                </mat-form-field>
+                                <button class="log-btn" routerLink="/dashboard" mat-stroked-button><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In</button>
+                                <div class="sep mt-2 mb-4"><span>Or Continue With</span></div>
+                                <button class="g-btn" mat-stroked-button><img src="../../../assets/img/Google__G__Logo.svg"> Continue With Google</button>
+                            </div>
+                        </mat-tab>
+                        <mat-tab label="Sign Up">
+                            <div class="py-3">
+                                <mat-form-field class="example-full-width">
+                                    <label>User Name <i>*</i></label>
+                                    <input matInput>
+                                </mat-form-field>
+                                <mat-form-field class="example-full-width">
+                                    <label>Email <i>*</i></label>
+                                    <input matInput type="email" placeholder="heshan@genesiis.com">
+                                </mat-form-field>
+                                <mat-form-field class="example-full-width">
+                                    <label>Confirm Email <i>*</i></label>
+                                    <input matInput type="email">
+                                </mat-form-field>
+                                <mat-form-field class="example-full-width">
+                                    <label>Password <i>*</i></label>
+                                    <input matInput type="password">
+                                </mat-form-field>
+                                <mat-form-field class="example-full-width">
+                                    <label>Confirm Password <i>*</i></label>
+                                    <input matInput type="password">
+                                </mat-form-field>
+                                <button class="log-btn" routerLink="/dashboard" mat-stroked-button><i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In</button>
+                                <div class="sep mt-2 mb-4"><span>Or Continue With</span></div>
+                                <button class="g-btn" mat-stroked-button><img src="../../../assets/img/Google__G__Logo.svg"> Continue With Google</button>
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
