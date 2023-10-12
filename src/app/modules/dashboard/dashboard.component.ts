@@ -201,7 +201,7 @@ export class DashboardComponent implements AfterViewInit {
     },
   ];
 
-  displayedColumns: string[] = ['employeeName', 'startDate', 'endDate', 'description', 'status'];
+  displayedColumns: string[] = ['employeeName', 'startDate', 'endDate', 'description', 'status', 'action'];
   dataSource = new MatTableDataSource(this.leaveRecords);
 
   displayedColumns2: string[] = ['avatar', 'name', 'designation', 'mobile'];
@@ -239,7 +239,7 @@ export class DashboardComponent implements AfterViewInit {
     if (status === 'Approved') {
       return 'status-approved';
     } else if (status === 'Pending') {
-      return 'status-pending';
+      return 'status-pending pending-cross';
     } else if (status === 'Rejected') {
       return 'status-rejected';
     }

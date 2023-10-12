@@ -50,8 +50,7 @@ export class ApplyLeaveModalComponent {
   ];
 
   notifypersons: notifyperson[] = [
-    {person: 'Senaka W'},
-    {person: 'Nilkamal W'},
+    {person: 'Tharindu Wijesooriya'}
   ];
 
   calculateNumberOfDays(fromDate: string, toDate: string): void {
